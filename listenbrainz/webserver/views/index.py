@@ -226,6 +226,11 @@ def mb_user_deleter(musicbrainz_row_id):
     return jsonify({'status': 'ok'}), 200
 
 
+@index_bp.route('/debug-sentry')
+def debug_sentry():
+    division = 1 / 0
+
+
 def _authorize_mb_user_deleter(auth_token):
     headers = {'Authorization': 'Bearer {}'.format(auth_token)}
     r = requests.get(current_app.config['MUSICBRAINZ_OAUTH_URL'], headers=headers)
