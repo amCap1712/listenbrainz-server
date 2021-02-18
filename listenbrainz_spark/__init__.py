@@ -8,7 +8,7 @@ from listenbrainz_spark import config
 
 from pyspark import SparkContext
 from pyspark.sql import SparkSession, SQLContext
-
+import logging
 session = None
 context = None
 sql_context = None
@@ -21,6 +21,7 @@ def init_spark_session(app_name):
             app_name (str): Name of the Spark application. This will also occur in the Spark UI.
     """
     if config.LOG_SENTRY:
+        logging.error(config.LOG_SENTRY)
         sentry_sdk.init(**config.LOG_SENTRY, integrations=[SparkIntegration()])
     global session, context, sql_context
     try:
