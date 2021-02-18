@@ -4,7 +4,7 @@ import listenbrainz.db.user as db_user
 
 from flask import Blueprint, request, jsonify
 from listenbrainz.webserver.decorators import crossdomain
-from listenbrainz.webserver.rate_limiter import ratelimit
+from brainzutils.ratelimit import ratelimit
 from listenbrainz.webserver.views.api_tools import log_raise_400, validate_auth_header
 from listenbrainz.webserver.errors import APINotFound, APIForbidden, APIUnauthorized
 from listenbrainz.db.exceptions import DatabaseException
